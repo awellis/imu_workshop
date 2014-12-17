@@ -1,1 +1,4 @@
 admin
+.Rhistory
+.ipynb_checkpoints*
+.Rproj.user*
