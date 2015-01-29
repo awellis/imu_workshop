@@ -12,7 +12,8 @@ y_hat <- a + b*x # linear predictor
 
 y <- rnorm(N, y_hat, sigma)  # response variable
 
-plot(rnorm(100,y_hat))
+library(ggplot2)
+qplot(x, y, geom = "line")
 
 modelstr <- "
 model {
