@@ -21,7 +21,7 @@ model {
         y[i] ~ dnorm(y_hat[i], tau)
         y_hat[i] <- a + b * x[i]
     }
-    
+
     # priors on the coefficients
     a ~ dnorm(0, 1e-03)
     b ~ dnorm(0, 1e-03)
@@ -45,7 +45,7 @@ inits <- function() {
 
 parameters = c("a", "b", "sigma")
 
-fit <- jags(data = jagsdata, model.file = textConnection(modelstr), 
+fit <- jags(data = jagsdata, model.file = textConnection(modelstr),
              inits = inits, n.chains = 2,
              n.iter = 2000, n.thin = 2,n.burnin = 100,
              parameters.to.save = parameters)
@@ -104,4 +104,4 @@ fit <- jags(data = jagsdata, model.file = textConnection(modelstr),
 print(fit)
 
 library(mcmcplots)
-caterplot(fit, parms = c("a", "b", "sigma"))
+caterplot(fit, parms = c("a", "b"))
